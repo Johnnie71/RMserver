@@ -16,6 +16,10 @@ const signup = async (req, res) => {
         //hashing the password with bcrypt and the level of encryption
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        const token = serverCient.createUserToken(userId);
+
+        res.status(200).json({token, fullName, username, userId, hashedPassword, phoneNumber});
+
     } catch(error){
         console.log(error);
 
