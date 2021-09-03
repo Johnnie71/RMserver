@@ -13,3 +13,7 @@ app.use(cors());
 app.use(express.json());
 // built in middleware in express
 app.use(express.urlencoded());
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
