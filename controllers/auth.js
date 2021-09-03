@@ -7,7 +7,9 @@ const login = (req, res) => {
     try {
         const { fullName, username, password, phoneNumber } = req.body;
 
-        const userId = crypto;
+        const userId = crypto.randomBytes(16).toString('hex');
+
+        const serverCient = connect(api_key, api_secret, app_id);
     } catch(error){
         console.log(error);
 
