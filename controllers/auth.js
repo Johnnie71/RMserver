@@ -3,6 +3,7 @@ const { connect } = require('getstream');
 const bcrypt = require('bcrypt');
 const StreamChat = require('stream-chat').StreamChat;
 
+// accessing the ability to get the environment variables
 require('dotenv').config();
 
 const api_key = process.env.STREAM_API_KEY;
