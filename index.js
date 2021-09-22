@@ -11,9 +11,9 @@ require('dotenv').config();
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
+const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID;
 // Twilio account allowing us to make the request in order to get SMS notifications
 const twilioClient = require('twilio')(accountSid, authToken);
-const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID;
 
 // allowing cross origin requests
 app.use(cors());
@@ -36,7 +36,7 @@ app.post('/', (req, res) => {
             if(!user.online){
                 twilioClient.messages.create({
                     body: `You have a new message from ${message.user.fullName} - ${message.text}`,
-                    messagingServiceSid: 
+                    messagingServiceSid: messagingServiceSid
                 })
             }
         })
