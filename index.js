@@ -46,7 +46,7 @@ app.post('/', (req, res) => {
                 }
             })
 
-            res.status(200).send('Message sent!');
+           return res.status(200).send('Message sent!');
     }
 })
 
