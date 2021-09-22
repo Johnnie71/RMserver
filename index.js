@@ -31,16 +31,20 @@ app.post('/', (req, res) => {
     const { message, user: sender, type, members } = req.body;
 
     if (type === 'message.new') {
-        members.forEach(({ user }) => {
-            // Only sending messages to the user that is not online
-            if(!user.online){
-                twilioClient.messages.create({
-                    body: `You have a new message from ${message.user.fullName} - ${message.text}`,
-                    messagingServiceSid: messagingServiceSid,
-                    to: user.phoneNumber
-                })
-            }
-        })
+        members
+            .filter((member) => member.user.id !== sender.id)
+            .forEach(({ user }) => {
+                // Only sending messages to the user that is not online
+                if(!user.online){
+                    twilioClient.messages.create({
+                        body: `You have a new message from ${message.user.fullName} - ${message.text}`,
+                        messagingServiceSid: messagingServiceSid,
+                        to: user.phoneNumber
+                    })
+                        .then(() => console.log("Message sent!"))
+                        .catch((err) => console.log(err))
+                }
+            })
     }
 })
 
