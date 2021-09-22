@@ -27,7 +27,19 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     // getting the data from stream to send over to twilio for sms notifications
-    const { message, user: sender, type, member } = req.body;
+    const { message, user: sender, type, members } = req.body;
+
+    if (type === 'message.new') {
+        members.forEach(({ user }) => {
+            // Only sending messages to the user that is not online
+            if(!user.online){
+                twilioClient.messages.create({
+                    body: `You have a new message from ${message.user.fullName} - ${message.text}`,
+                    messagingServiceSid: 
+                })
+            }
+        })
+    }
 })
 
 app.use('/auth', authRoutes)
