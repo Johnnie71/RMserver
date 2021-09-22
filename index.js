@@ -12,7 +12,7 @@ require('dotenv').config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 // Twilio account allowing us to make the request in order to get SMS notifications
-const client = require('twilio')(accountSid, authToken);
+const twilioClient = require('twilio')(accountSid, authToken);
 
 // allowing cross origin requests
 app.use(cors());
