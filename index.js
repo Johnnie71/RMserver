@@ -13,6 +13,7 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 // Twilio account allowing us to make the request in order to get SMS notifications
 const twilioClient = require('twilio')(accountSid, authToken);
+const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID;
 
 // allowing cross origin requests
 app.use(cors());
