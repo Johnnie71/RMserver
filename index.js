@@ -25,6 +25,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.post('/', (req, res) => {
+    // getting the data from stream to send over to twilio for sms notifications
+    const { message, user: sender, type, member } = req.body;
+})
+
 app.use('/auth', authRoutes)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}.`));
