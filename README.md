@@ -14,11 +14,11 @@ In the project directory, you can run:
 
 ### `npm run dev`
 
-- To run the application which will use Nodemon
+- To run the application which will use [Nodemon](https://www.npmjs.com/package/nodemon)
 
 ## The Frontend
 
-Link - [Server](https://github.com/Johnnie71/RMserver)
+Link - [Client](https://github.com/Johnnie71/RM-Client)
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
