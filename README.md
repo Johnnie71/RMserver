@@ -14,7 +14,7 @@ In the project directory, you can run:
 
 ### `npm run dev`
 
-- To run the application which will use [Nodemon](https://www.npmjs.com/package/nodemon)
+- To run the application, which will use [Nodemon](https://www.npmjs.com/package/nodemon)
 
 ## The Frontend
 
